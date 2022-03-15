@@ -1,5 +1,2 @@
-if (count == k)
-            {
-                cout << i << endl;
-                break;
-            }
+result = max((x1 / a) + (x1 % a), (x2 / a) + (x2 % a));
+        cout << result << endl;
