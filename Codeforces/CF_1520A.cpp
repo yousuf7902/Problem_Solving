@@ -1,34 +1,37 @@
-#include<bits/stdc++.h>
-using namespace std;
-
-
-int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    int t;
-    cin >> t;
-
-    while(t--){
-        int n;
-        cin >> n;
-        bool flag = false;
-        string s;
-        cin >> s;
-
-        for (int i = 0, j=n-1; i < n/2, j>=n/2;i++,j--){
-                if(s[i]==s[j]){
-                    flag = true;
-                    break;
+    #include <bits/stdc++.h>
+     
+    using namespace std;
+     
+    int main()
+    {
+        int t;
+        cin>>t;
+     
+        while(t--){
+            int n,i=0,flag=0;
+            string s;
+     
+            cin>>n>>s;
+     
+            while(i<n){
+     
+                if(s[i]!=s[i+1]){
+                    for(int j=i+1;j<n;j++){
+                        if(s[i]==s[j]){
+                            flag=1;
+                            break;
+                        }
+                    }
                 }
+                i++;
+            }
+            if(flag>0){
+                cout<<"NO"<<endl;
+            }
+            else{
+                cout<<"YES"<<endl;
+            }
         }
-
-        if(flag==true){
-            cout << "NO" << endl;
-        }
-        else{
-            cout << "YES" << endl;
-        }
+     
+        return 0;
     }
-    return 0;
-}

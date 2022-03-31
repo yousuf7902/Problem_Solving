@@ -1,4 +1,3 @@
-while(sum<=0){
-                    sum = sum + i;
-                    i++;
-                }
+        if(maxps<minps){
+            swap(maxps, minps);
+        }
