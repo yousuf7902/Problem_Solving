@@ -9,7 +9,9 @@ int main()
     int n;
     cin >> n;
 
-    int arr[n + 1], max_height = INT_MIN, min_height = INT_MAX, count = 0;
+    int arr[n + 1], max_height = INT_MIN, min_height = INT_MAX;
+
+    long long int pos_max = 0, pos_min = 0, flag = 0;
 
     for (int i = 1; i <= n; i++)
     {
@@ -20,31 +22,36 @@ int main()
 
     for (int i = 1; i <= n; i++)
     {
-        if (arr[i] == max_height && arr[1]!=max_height)
+        if (arr[i] == max_height)
         {
-            count++;
-            swap(arr[1], arr[i]);
+            if (flag == 1)
+            {
+                continue;
+            }
+            else
+            {
+                pos_max = i;
+            }
+            flag = 1;
         }
-        else if (arr[i] == min_height && arr[n]!=min_height)
+        else if (arr[i] == min_height)
         {
-            count++;
-            swap(arr[n], arr[i]);
+            pos_min = i;
         }
     }
-    if (n % 2 == 0)
+
+    if (max_height == min_height)
     {
-        cout << count << endl;
+        cout << 0 << endl;
     }
     else
     {
-        if (count == 0)
+        int a = (pos_max - 1) + (n - pos_min);
+        if (pos_max > pos_min)
         {
-            cout << count << endl;
+            a--;
         }
-        else
-        {
-            cout << (n - 2) * count << endl;
-        }
+        cout << a << endl;
     }
 
     return 0;
