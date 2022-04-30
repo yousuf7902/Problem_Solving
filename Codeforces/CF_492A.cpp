@@ -5,19 +5,20 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    int n, sum = 0, py = 0,ans=0;
-    vector<int> vec;
+    int n, sum = 0, py = 0, ans = 0;
     cin >> n;
 
     for (int i = 1; i <= n; i++)
     {
         sum = sum + i;
         py = py + sum;
-        
-        if(py<=n){
+
+        if (py <= n)
+        {
             ans = i;
         }
-        else{
+        else
+        {
             break;
         }
     }
