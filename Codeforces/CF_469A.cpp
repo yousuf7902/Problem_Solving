@@ -52,9 +52,15 @@ int main()
         vec.emplace_back(x);
     }
 
+    if(p==0 && q==0){
+        cout << "Oh, my keyboard!" << endl;
+        return 0;
+    }
+    
     sort(vec.begin(), vec.end());
     for (int i = 0; i < vec.size() - 1; i++)
     {
+
         if (vec[i] != vec[i + 1])
         {
             count++;
