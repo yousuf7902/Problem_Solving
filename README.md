@@ -9,4 +9,4 @@
 | Beecrowd | [Yousuf Hassan](https://www.beecrowd.com.br/judge/en/profile/553291) | 109 |
 | Total | | 279 |
 
-Last Updated: 11 May, 2022
+Last Updated: 12 May, 2022
