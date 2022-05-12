@@ -11,18 +11,10 @@ int main()
 
     string s;
     cin >> s;
-
     int count = 1;
-    for (int i = 0; i < s.size()-1; i++)
-    {
-        while(count>0){
-            s[i] = ' ';
-            count--;
-        }
-        if(s[i]!=s[i+1]){
-            count++;
-        }
+    for (int i = 0; i < s.size();i+=count){
+        cout << s[i];
+        count++;
     }
-    cout << s << endl;
     return 0;
 }

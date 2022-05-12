@@ -1,1 +1,1 @@
- endl
+            cout << pos << endl;
