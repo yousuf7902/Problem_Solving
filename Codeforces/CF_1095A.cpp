@@ -1,34 +1,28 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main()
+{
     ios_base::sync_with_stdio(0);
     cin.tie(0);
 
-    int n, count = 0,num=1;
+    int n;
     cin >> n;
 
-    string s,s1=" ";
+    string s;
     cin >> s;
 
-    for (int i = 0; i < s.size()-1;i++){
-        count++;
-        if(s[i]!=s[i+1]){
-            if(count==num){
-                s1 = s1 + s[i];
-                cout << "hell";
-            }
-            else{
-                int pos = i;
-                for (int i = pos; i<count-num;i++){
-                    s1 = s1 + s[i];
-                }
-            }
-            num++;
+    int count = 1;
+    for (int i = 0; i < s.size()-1; i++)
+    {
+        while(count>0){
+            s[i] = ' ';
+            count--;
         }
-        count = 0;
+        if(s[i]!=s[i+1]){
+            count++;
+        }
     }
-
-    cout << s1 << endl;
+    cout << s << endl;
     return 0;
 }
