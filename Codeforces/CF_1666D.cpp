@@ -14,21 +14,18 @@ int main(){
         sort(s.begin(), s.end());
         sort(t.begin(), t.end());
 
-        vector<char> vec;
-        for (int i = 0; i < s.size();i++){
-            if(s[i]!=s[i+1]){
-                vec.emplace_back(s[i]);
-            }
-        }
 
         for (int i = 0; i < t.size();i++){
-            for (int j = 0; j < vec.size();j++){
-                if(t[i]==vec[i]){
-                    vec[i] = ' ';
-                    i++;
+            for (int j = 0; j < s.size();j++){
+                if(t[i]==s[j]){
+                    flag++;
+                    s[j] = ' ';
+                    break;
                 }
             }
         }
+        cout << flag << endl;
+
     }
     return 0;
 }
