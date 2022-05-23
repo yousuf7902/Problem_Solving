@@ -8,28 +8,22 @@ int main(){
     cin >> t;
 
     while(t--){
-        int n,count=0;
+        int n,count=1;
         cin >> n;
         string s;
         cin >> s;
-
-        if(n%2!=0){
-            cout << 1 << endl;
-        }
-        else{
-            if(n==2){
-                cout << n << endl;
+        vector<int> vec;
+        for (int i = 0; i < n;i++){
+            if(s[i]==s[i+1]){
+                count++;
             }
             else{
-                if(n%4==0){
-                    cout << 4 << endl;
-                }
-                else{
-                    cout << 2 << endl;
-                }
+                vec.emplace_back(count);
+                count = 1;
             }
         }
-
+        cout << vec[(vec.size() / 2)] << endl;
+        
     }
     return 0;
 }
