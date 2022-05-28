@@ -1,3 +1,11 @@
+// Problem: A. Business trip
+// Contest: Codeforces - Codeforces Round #106 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/149/A
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+// 
+
+
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -19,7 +27,7 @@ using namespace std;
 #define         st set<int>
 #define         ll long long
 #define         eb emplace_back
-#define         sort(v) sort(v.begin(),v.end())
+#define         sortvec(v) sort(v.begin(),v.end())
 #define         sortrev(v) sort(v.rbegin(),v.rend())
 #define			py		cout << "Yes\n";
 #define			pn		cout << "No\n";
@@ -31,7 +39,38 @@ using namespace std;
 int main(){
     FAST
 
-
+	int k,sum=0,cnt=0,mark=0;
+	cin>>k;
+	
+	int arr[12];
+	for(int i=0;i<12;i++){
+		cin>>arr[i];
+	}
+	
+	sort(arr,arr+12);
+	
+	if(k==0){
+		cout<<cnt<<endl;
+	}
+	else{
+		for(int i=11;i>=0;i--){
+		sum=sum+arr[i];
+		cnt++;
+		if(k<=sum){
+			mark=1;
+			break;
+			}
+		}
+		
+		if(mark==1){
+			cout<<cnt<<endl;
+		}
+		else{
+			cout<<-1<<endl;
+		}
+	}
+	
+	
 
     rn;
 }
