@@ -1,10 +1,9 @@
-// Problem: A. Magic Numbers
-// Contest: Codeforces - Codeforces Round #189 (Div. 2)
-// URL: https://codeforces.com/problemset/problem/320/A
+// Problem: A. Valera and X
+// Contest: Codeforces - Codeforces Round #237 (Div. 2)
+// URL: https://codeforces.com/contest/404/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 // 
-// Powered by CP Editor (https://cpeditor.org)
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -30,71 +29,48 @@ using namespace std;
 #define         prec(n) fixed<<setprecision(n)
 #define         py      cout << "YES\n";
 #define         pn      cout << "NO\n";
-#define         endl    "\n"
+#define			endl     "\n"
 #define         rn return 0;
 //
 //===============================================================================
 
 int main(){
     FAST
-    string s;
-    cin>>s;
+    int n,dig_mark=0,alph_mark=0;
+    cin>>n;
     
-    /* vc <char>vec;
-    if(s.size()==1 && s[0]=='1')py
-    else if(s.size()==1 && s[0]!='1')pn
-    else{
-        for(int i=0;i< s.size()-2;i++){
-        if(s[i]=='1' && s[i+1]=='4' && s[i+2]=='4'){  
-            vec.eb(s[i]);
-            vec.eb(s[i+1]);
-            vec.eb(s[i+2]);
-            s[i]=' ';
-            s[i+1]=' ';
-            s[i+2]=' ';
-            i+=2;
+    char mat[n+1][n+1];
+    
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cin>>mat[i][j];
         }
     }
     
-    for(int i=0;i<s.size()-1;i++){
-        if(s[i]=='1' && s[i+1]=='4'){
+    char alph=mat[1][2];
+    char dig= mat[1][1];
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            if(i==j || i+j==1+n){
+                if(mat[i][j]!=dig || mat[i][j]==alph){
+                    dig_mark=1;
+                    break;
+                }
+            }
             
-            vec.eb(s[i]);
-            vec.eb(s[i+1]);
-            s[i]=' ';
-            s[i+1]=' ';
-            i++;
+            if(i!=j && i+j!=1+n){
+                if(mat[i][j]!=alph || mat[i][j]==dig){
+                    alph_mark=1; 
+                    break; 
+                }
+                
+            } 
         }
     }
     
-    for(int i=0;i<=s.size();i++){
-        if(s[i]=='1'){
-            vec.eb(s[i]);
-            s[i]=' ';
-        }
-    }
+    if(alph_mark==1 || dig_mark==1)pn
+    else py
     
-    if(vec.size()==s.size())py
-    else pn
-        
-    } */
-    
-    
-    //Another way
-    
-    int flag=0;
-    for(int i=0;i<s.size();){
-        if(s[i]=='1' && s[i+1]=='4' && s[i+2]=='4')i+=3;
-        else if(s[i]=='1' && s[i+1]=='4')i+=2;
-        else if(s[i]=='1')i++;
-        else{
-            flag=1;
-            break;
-        }
-    }
-    
-    if(flag==0)py
-    else pn
     
     rn;
 }
