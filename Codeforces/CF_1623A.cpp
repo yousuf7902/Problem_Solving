@@ -1,10 +1,10 @@
-// Problem: A. Cirno's Perfect Bitmasks Classroom
-// Contest: Codeforces - Codeforces Round #796 (Div. 2)
-// URL: https://codeforces.com/contest/1688/problem/A
+// Problem: A. Robot Cleaner
+// Contest: Codeforces - Codeforces Round #763 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/1623/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 // 
-
+// Powered by CP Editor (https://cpeditor.org)
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -40,24 +40,34 @@ int main(){
     int t;
     cin>>t;
     
+    /*while(t--){
+        int n,m, r, c,dr, dc,mark=0,row=1,col=1;
+        
+        cin>>n>>m>>r>>c>>dr>>dc;
+        
+        while(r!=dr && c!=dc){
+            if(r+row>n || r+row<1)row=row*(-1);
+            if(c+col>m || c+col<1)col=col*(-1);
+            r=r+row;
+            c=c+col;
+            mark++;
+        }
+        cout<<mark<<endl;
+        
+    }*/
+    
+    //Another way
+    
     while(t--){
-        ll int x;
-        cin>>x;
+        int n,m,r,c,dr,dc;
+        cin>>n>>m>>r>>c>>dr>>dc;
         
-        if(x==1){
-            cout<<3<<endl;
-            continue;
-        }
+        int row, col;
         
-        int y=x&-x;
-            
-        if(y==x){
-            cout<<y+1<<endl;
-        }
-        else{
-            cout<<y<<endl;
-        }
+        row=(r<=dr)?(dr-r):((n-r)+(n-dr));
+        col=(c<=dc)?(dc-c):((m-c)+(m-dc));
         
+        cout<<min(row,col)<<endl;
     }
     rn;
 }

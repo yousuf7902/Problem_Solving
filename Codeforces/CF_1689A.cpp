@@ -1,10 +1,9 @@
-// Problem: A. Cirno's Perfect Bitmasks Classroom
-// Contest: Codeforces - Codeforces Round #796 (Div. 2)
-// URL: https://codeforces.com/contest/1688/problem/A
+// Problem: A. Lex String
+// Contest: Codeforces - Codeforces Round #798 (Div. 2)
+// URL: https://codeforces.com/contest/1689/problem/0
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 // 
-
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -41,23 +40,44 @@ int main(){
     cin>>t;
     
     while(t--){
-        ll int x;
-        cin>>x;
         
-        if(x==1){
-            cout<<3<<endl;
-            continue;
-        }
+        int a, b, k;
+        cin>>a>>b>>k;
         
-        int y=x&-x;
-            
-        if(y==x){
-            cout<<y+1<<endl;
-        }
-        else{
-            cout<<y<<endl;
-        }
+        string s1,s2,ex;
+        cin>>s1>>s2;
         
+        sort(s1.begin(),s1.end());
+        
+        sort(s2.begin(),s2.end());
+        
+        int i=0,j=0, s1cnt=k,s2cnt=k;
+         
+         while(true){
+             if((s1[i]<=s2[j] && s1cnt!=0) || s2cnt==0){
+                 ex=ex+s1[i];
+                 
+                 s1cnt--;
+                 s2cnt=k;
+                 
+                 i++;
+             }
+             else{
+                 ex=ex+s2[j];
+                 
+                 s2cnt--;
+                 s1cnt=k;
+                 
+                 j++;
+             }
+             
+             if(i==a || j==b){
+                 break;
+             }
+         }
+        cout<<ex<<endl;
+  
     }
+        
     rn;
 }
