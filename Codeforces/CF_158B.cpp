@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. Taxi
+// Contest: Codeforces - VK Cup 2012 Qualification Round 1
+// URL: https://codeforces.com/contest/158/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 3000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -35,22 +35,36 @@ using namespace std;
 
 int main(){
     FAST
+    int n;
+    cin>>n;
     
-    int t;
-    cin>>t;
+    int arr[5]={0};
     
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
-        
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        arr[x]++;
     }
+    
+    int texi=arr[4]+arr[3]+(arr[2]/2);
+    
+    arr[1]-=arr[3];
+    
+    if(arr[2]%2==1){
+        texi+=1;
+        arr[1]-=2;
+    }
+    
+    if(arr[1]>0){
+        if(arr[1]%4==0){
+            texi+=arr[1]/4;
+        }
+        else{
+            texi+=(arr[1]/4)+1;
+        }
+    }
+    
+    cout<<texi<<endl;
     
     rn;
 }

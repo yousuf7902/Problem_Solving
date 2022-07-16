@@ -1,6 +1,6 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: Good Sequence
+// Contest: Virtual Judge - AtCoder
+// URL: https://vjudge.net/problem/AtCoder-arc087_a
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 
@@ -35,22 +35,37 @@ using namespace std;
 
 int main(){
     FAST
+
+    int n;
+    cin>>n;
     
-    int t;
-    cin>>t;
+    vc<int>vec;
     
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+        vec.eb(x);
     }
     
+    map<int, int> numbers;
+    
+    for(auto it:vec){
+        numbers[it]++;
+    }
+    
+    int ans=0;
+    for(auto it: numbers){
+        if(it.second==it.first)continue;
+        else if(it.second<it.first){
+            ans=ans+it.second;
+        }
+        else if(it.second>it.first){
+            ans=ans+(it.second-it.first);
+        }
+    }
+    
+    cout<<ans<<endl;
+
     rn;
 }

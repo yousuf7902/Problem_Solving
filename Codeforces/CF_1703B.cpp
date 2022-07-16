@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. ICPC Balloons
+// Contest: Codeforces - Codeforces Round #806 (Div. 4)
+// URL: https://codeforces.com/contest/1703/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -35,22 +35,23 @@ using namespace std;
 
 int main(){
     FAST
-    
     int t;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
+        int n;
+        cin>>n;
+        
         string s;
         cin>>s;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        st s1;
         
-        check[s]=1;
+        for(int i=0;i<s.size();i++){
+            s1.insert(s[i]);
+        }
+        
+        cout<<(s1.size()*2)+(n-s1.size())<<endl;
     }
-    
     rn;
 }

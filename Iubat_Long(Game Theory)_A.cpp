@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: A - A Multiplication Game
+// Contest: Virtual Judge - IUBAT Long I (Game Theory + STL)
+// URL: https://vjudge.net/contest/502739#problem/A
+// Memory Limit: 1024 MB
+// Time Limit: 3000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,20 +36,34 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    ll int n;
     
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
+    while(cin>>n){
+        ll int p=1,stan=0,ollie=0;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        while(1){
+        p=p*9;
         
-        check[s]=1;
+        if(p>=n){
+            stan=1;
+            break;
+        }
+        
+        p=p*2;
+        if(p>=n){
+            ollie=1;
+            break;
+        }
+
+    }
+    
+        if(ollie==1){
+            cout<<"Ollie wins."<<endl;
+        }
+        else{
+            cout<<"Stan wins."<<endl;
+        }    
+        
     }
     
     rn;

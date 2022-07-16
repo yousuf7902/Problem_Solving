@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: K - CD
+// Contest: Virtual Judge - IUBAT Long I (Game Theory + STL)
+// URL: https://vjudge.net/contest/502739#problem/K
+// Memory Limit: 1024 MB
+// Time Limit: 3000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -32,25 +32,45 @@ using namespace std;
 #define         rn return 0;
 //
 //===============================================================================
+const int space=1e7;
+
+int arr[space]={0};
 
 int main(){
     FAST
     
-    int t;
-    cin>>t;
-    
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
+    int n,m;
+    while(cin>>n , cin>>m){
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        if(n==0 && m==0)break;
         
-        check[s]=1;
+        for(int i=0;i<n;i++){
+            int x;
+            cin>>x;
+            arr[x]++;
+        }
+        
+        for(int i=0;i<m;i++){
+            int x;
+            cin>>x;
+            arr[x]++;
+        }
+        
+        int sell=0;
+        
+        for(int i=0;i<space;i++){
+            if(arr[i]==2){
+                sell++;
+            }
+            else if(arr[i]>2){
+                sell=sell+(arr[i]-1);
+            }
+        }
+        cout<<sell<<endl; 
+        
+        for(int i=0;i<space;i++){
+            arr[i]=0;
+        }   
     }
-    
     rn;
 }

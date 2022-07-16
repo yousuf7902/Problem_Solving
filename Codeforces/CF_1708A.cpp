@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: A. Difference Operations
+// Contest: Codeforces - Codeforces Round #808 (Div. 2)
+// URL: https://codeforces.com/contest/1708/problem/0
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -39,18 +39,58 @@ int main(){
     int t;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
-        string s;
-        cin>>s;
+        int n;
+        cin>>n;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        vc <int> vec;
         
-        check[s]=1;
-    }
+        for(int i=0;i<n;i++){
+            int x;
+            cin>>x;
+            
+            vec.eb(x);
+        }
+        
+        int f=0,cnt=0;
+        for(int i=vec.size()-1;i>=1;i--){
+            vec[i]=vec[i]-vec[i-1];
+        }
+        
+        for(int i=vec.size()-1;i>=1;i--){
+            if(vec[i]<0){
+                f=1;
+                break;
+            }
+            
+            if(vec[i]==0)cnt++;
+                             
+            if(vec[i]<vec[i-1]){
+                f=1;
+                break;
+            }
+        }
+        
+        
+        if(f==0){
+            cout<<"YES"<<endl;
+        }
+        else{
+            int size=vec.size()-1;
+            if(size==cnt){
+                cout<<"YES"<<endl;
+            }
+            else{
+                cout<<"NO"<<endl;
+            }
+        }
+        /*cout<<f<<endl;
+        for(auto it: vec){
+            cout<<it<<" ";
+        }
+        
+        cout<<endl<<endl;*/
+    }    
     
     rn;
 }

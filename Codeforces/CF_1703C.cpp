@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: C. Cypher
+// Contest: Codeforces - Codeforces Round #806 (Div. 4)
+// URL: https://codeforces.com/contest/1703/problem/C
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -35,22 +35,45 @@ using namespace std;
 
 int main(){
     FAST
-    
     int t;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
-        string s;
-        cin>>s;
+        int n;
+        cin>>n;
+        int arr[n],b[n];
+        string s[n];
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
         
-        check[s]=1;
+        for(int i=0;i<n;i++){
+            cin>>b[i]>>s[i];
+        }
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<b[i];j++){
+                if(s[i][j]=='D'){
+                    arr[i]++;
+                    if(arr[i]>9){
+                        arr[i]=arr[i]%10;
+                    }
+                }
+                else{
+                    arr[i]--;
+                    if(arr[i]<0){
+                        arr[i]=9;
+                    }
+                }
+            }
+        }
+        
+        for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+        
     }
-    
     rn;
 }

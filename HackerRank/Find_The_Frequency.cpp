@@ -1,9 +1,3 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -33,24 +27,47 @@ using namespace std;
 //
 //===============================================================================
 
+
+
+
+int findFrequency(vector<int> v, int x){
+    map<int, int>check;
+    
+    for(auto it:v){
+        check[it]++;
+    }
+    
+    return check[x];
+    
+}
+
+
 int main(){
     FAST
     
-    int t;
-    cin>>t;
-    
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
-        
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
-    }
+    int testcase;
+	
+	cin >> testcase;
+	
+	while(testcase--){
+	    int N;
+	    cin >> N;
+	    
+	    // Declaring vector 
+	    vector<int> v;
+	        
+	    // Taking vector element input
+	    for(int i = 0;i<N;i++){
+	        int k;
+	        cin >> k;
+	        v.push_back(k);
+	    }
+	    
+	    // element whose frequency to be find
+	    int x;
+	    cin >> x;
+	    cout << findFrequency(v, x) << endl;
+	}
     
     rn;
 }

@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: C. Registration system
+// Contest: Codeforces - Codeforces Beta Round #4 (Div. 2 Only)
+// URL: https://codeforces.com/problemset/problem/4/C
+// Memory Limit: 64 MB
+// Time Limit: 5000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,20 +36,21 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
     
-    map <string, bool> check;
+    map <string, int> check;
     
-    
-    while(t--){
-        string s;
-        cin>>s;
+    for(int i=0;i<n;i++){
+        string x;
+        cin>>x;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        if(check[x]==0)cout<<"OK"<<endl;
+        else{
+            cout<<x<<check[x]<<endl;
+        }
+        check[x]++;
         
-        check[s]=1;
     }
     
     rn;

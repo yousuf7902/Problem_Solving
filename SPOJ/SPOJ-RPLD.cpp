@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: Database
+// Contest: Virtual Judge - SPOJ
+// URL: https://vjudge.net/problem/SPOJ-RPLD
+// Memory Limit: 1536 MB
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -35,22 +35,34 @@ using namespace std;
 
 int main(){
     FAST
-    
-    int t;
+        
+    int t,cnt=1;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
-        string s;
-        cin>>s;
+        int n,m,flag=0;
+        cin>>n>>m;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        map <pair,bool>check;
         
-        check[s]=1;
+        while(m--){
+            int a,b;
+            cin>>a>>b;
+            
+            if(check[{a,b}]!=0)flag=1;
+            check[{a,b}]=1;
+        }
+            
+        if(flag==0){
+            cout<<"Scenario #"<<cnt<<": possible"<<endl;
+        }
+        else{
+           cout<<"Scenario #"<<cnt<<": impossible"<<endl;
+        }
+         
+        ++cnt;
+        
     }
-    
+        
     rn;
 }

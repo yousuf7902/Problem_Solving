@@ -1,9 +1,3 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -33,24 +27,58 @@ using namespace std;
 //
 //===============================================================================
 
+string maximumFrequency(string s);
+
 int main(){
     FAST
     
-    int t;
-    cin>>t;
-    
-    map <string, bool> check;
-    
-    
-    while(t--){
+    int t;cin>>t;
+    cin.ignore();
+
+    for(int i=0;i<t;i++)
+    {
+
         string s;
-        cin>>s;
+        getline(cin,s);
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
         
-        check[s]=1;
+        cout << maximumFrequency(s) << endl;
+
     }
     
     rn;
+}
+
+string maximumFrequency(string s){
+        map <string, int> check;
+       
+       string s1;
+       vector<string>vec;
+       
+       for(int i=0;i<s.size();i++){
+           if(s[i]==' '){
+               vec.emplace_back(s1);
+               s1="";
+           }
+           else{
+               s1=s1+s[i];
+               if(i==s.size()-1){
+                   vec.emplace_back(s1);
+               }
+           }
+           
+       }
+      
+        int maxi=0;
+        for(auto it:vec){
+            check[it]++;
+            maxi=max(maxi,check[it]);
+        }
+        
+    
+        for(auto it:vec){
+            if(check[it]==maxi){
+                return it+" "+to_string(maxi);
+            }
+        }
 }

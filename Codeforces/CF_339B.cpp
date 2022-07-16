@@ -1,6 +1,6 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. Xenia and Ringroad
+// Contest: Codeforces - Codeforces Round #197 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/339/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 
@@ -36,21 +36,29 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    ll int n,m;
+    cin>>n>>m;
     
-    map <string, bool> check;
+    ll int arr[m+1];
     
-    
-    while(t--){
-        string s;
-        cin>>s;
-        
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+    for(int i=1;i<=m;i++){
+        cin>>arr[i];
+    }
+    ll int time=0;
+    for(int i=1;i<=m;i++){
+        if(i==1){
+            time=time+arr[i]-1;
+        }
+        else{
+            if(arr[i-1]>arr[i]){
+                time=time+(n-(arr[i-1]-arr[i]));
+            }
+            else{
+                time=time+(arr[i]-arr[i-1]);
+            }
+        }
     }
     
+    cout<<time<<endl;
     rn;
 }

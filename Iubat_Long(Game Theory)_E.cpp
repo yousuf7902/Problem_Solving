@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Problem: E - Misere Nim
+// Contest: Virtual Judge - IUBAT Long I (Game Theory + STL)
+// URL: https://vjudge.net/contest/502739#problem/E
+// Memory Limit: 64 MB
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,21 +36,48 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
+    int t,cnt=1;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
-        string s;
-        cin>>s;
+        int n;
+        cin>>n;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        int arr[n+1],check=0;
         
-        check[s]=1;
-    }
+        for(int i=1;i<=n;i++){
+            cin>>arr[i];
+            if(arr[i]==1)check++; 
+        }
+        
+
+        if(check==n){
+            if(n%2==0){
+                cout<<"Case "<<cnt<<": Alice"<<endl;
+
+            }
+            else{
+                cout<<"Case "<<cnt<<": Bob"<<endl;
     
+            } 
+        }
+        else{
+            int ans=0;
+    
+            for(int i=1;i<=n;i++){
+                ans=ans^arr[i];
+            }
+        
+            if(ans==0){
+                cout<<"Case "<<cnt<<": Bob"<<endl;
+            }
+            else{
+                cout<<"Case "<<cnt<<": Alice"<<endl;
+            }
+        }
+        
+        cnt++;
+    }    
+
     rn;
 }

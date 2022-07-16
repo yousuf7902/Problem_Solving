@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. Ehab Is an Odd Person
+// Contest: Codeforces - Codeforces Round #563 (Div. 2)
+// URL: https://codeforces.com/contest/1174/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -33,23 +33,32 @@ using namespace std;
 //
 //===============================================================================
 
+
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
     
-    map <string, bool> check;
+    int arr[n],even=0,odd=0;
     
-    
-    while(t--){
-        string s;
-        cin>>s;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+        if(arr[i]%2==0)even++;
+        else odd++;
+    }
+    
+    if((odd==0 and even !=0) || (even==0 and odd!=0)){
+        for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
+        }
+    }
+    else{
+        sort(arr,arr+n);
+        for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
+        }
     }
     
     rn;

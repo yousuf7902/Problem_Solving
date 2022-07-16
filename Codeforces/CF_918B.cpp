@@ -1,6 +1,6 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. Radio Station
+// Contest: Codeforces - Codeforces Round #459 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/918/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 
@@ -36,21 +36,28 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n,m;
+    cin>>n>>m;
     
-    map <string, bool> check;
+    map<string, string>mp1;
     
-    
-    while(t--){
-        string s;
-        cin>>s;
+    for(int i=0;i<n;i++){
+        string s1,s2;
+        cin>>s1>>s2;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+        mp1[s2]=s1;
     }
+    
+    while(m--){
+        string s1,s2,ip;
+        cin>>s1>>s2;
+        ip=s2;
+        s2.pop_back();
+        
+        cout<<s1<<" "<<ip<<" #"<<mp1[s2]<<endl;
+        
+    }
+    
     
     rn;
 }

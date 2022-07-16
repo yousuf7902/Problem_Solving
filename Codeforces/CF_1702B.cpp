@@ -1,6 +1,6 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: B. Polycarp Writes a String from Memory
+// Contest: Codeforces - Codeforces Round #805 (Div. 3)
+// URL: https://codeforces.com/contest/1702/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 
@@ -39,18 +39,23 @@ int main(){
     int t;
     cin>>t;
     
-    map <string, bool> check;
-    
-    
     while(t--){
         string s;
         cin>>s;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        int ans=1;
         
-        check[s]=1;
+        set <char> s1;
+        for(int i=0;i<s.size();i++){
+            s1.insert(s[i]);
+            
+            if(s1.size()>3){
+                s1.clear();
+                s1.insert(s[i]);
+                ans++;
+            }
+        }
+        cout<<ans<<endl;
     }
-    
     rn;
 }

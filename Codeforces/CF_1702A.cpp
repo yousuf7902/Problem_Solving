@@ -1,8 +1,8 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
+// Problem: A. Round Down the Price
+// Contest: Codeforces - Codeforces Round #805 (Div. 3)
+// URL: https://codeforces.com/contest/1702/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 2000 ms
+// Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -37,19 +37,29 @@ int main(){
     FAST
     
     int t;
-    cin>>t;
-    
-    map <string, bool> check;
-    
+    cin>>t; 
     
     while(t--){
-        string s;
-        cin>>s;
+        ll int m,a=10,pos=0,check;
+        cin>>m;
         
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
+        for(int i=0;i<=9;i++){
+            check=(int)(pow(a,i)+1e-9);
+            if(check>m){
+                pos=i-1;
+                break;
+            }
+            else if(check==m){
+                pos=i;
+                break;
+            }
+        }
+
         
-        check[s]=1;
+        ll int value=(int)(pow(10,pos)+1e-9);
+    
+        cout<<m-value<<endl;
+
     }
     
     rn;

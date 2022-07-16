@@ -1,9 +1,3 @@
-// Problem: A. Tom Riddle's Diary
-// Contest: Codeforces - Manthan, Codefest 17
-// URL: https://codeforces.com/contest/855/problem/A
-// Memory Limit: 256 MB
-// Time Limit: 2000 ms
-
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -33,24 +27,46 @@ using namespace std;
 //
 //===============================================================================
 
+
+class Solution
+{
+    public:
+        int countWords(string list[], int n)
+        {
+           map<string, int>check;
+           
+           for(int i=0;i<n;i++){
+               check[list[i]]++;
+           }
+           
+           int cnt=0;
+           for(auto it:check){
+               if(it.second==2){
+                   cnt++;
+               }
+           }
+           
+           return cnt;
+        }
+
+};
+
+
 int main(){
     FAST
     
     int t;
     cin>>t;
-    
-    map <string, bool> check;
-    
-    
-    while(t--){
-        string s;
-        cin>>s;
-        
-        if(check[s]==1)cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
-        
-        check[s]=1;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        string list[n];
+        for(int i=0;i<n;i++)
+            cin>>list[i];
+        Solution ob;    
+        cout <<ob.countWords(list, n)<<endl;
     }
-    
+
     rn;
 }
