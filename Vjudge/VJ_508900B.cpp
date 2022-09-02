@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B - Array Condensation
+// Contest: Virtual Judge - IUBAT ICPC 2021 Team Selection Contest II
+// URL: https://vjudge.net/contest/508900#problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -35,38 +35,36 @@ using namespace std;
 
 int main(){
     FAST
+    ll int n, m,k;
+    cin>>n>>m>>k;
     
-    int t;
-    cin>>t;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
+    ll int arr[n];
+    
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    
+    sort(arr, arr+n);
 
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+    for(int i=1;i<=k;i++){
+        int cnt=0,sum=0;
+        for(int j=n-1;;j--){
+            if(cnt==m)break;
+            cnt++;
+            if(arr[j]!=0){
+                sum=sum+arr[j];
+                arr[j]=0;
             }
+            else{
+                cnt--;
+            }
+            
         }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        arr[n-1]=sum;
+    }
+       
+    cout<<arr[n-1]<<endl;
     
     rn;
 }

@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B. Remove Prefix
+// Contest: Codeforces - Codeforces Round #811 (Div. 3)
+// URL: https://codeforces.com/contest/1714/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -43,30 +43,28 @@ int main(){
         int n;
         cin>>n;
         
-        vc <int> vec;
+        int arr[n],ans=0;
+        
+        map<int, int>check;
         
         for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+            cin>>arr[i]; 
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
+    
+        reverse(arr,arr+n);
+        
+        for(int i=0;i<n;i++){
+            if(check[arr[i]]==0){
+                check[arr[i]]++;
+                ans++;
+            }
+            else{
                 break;
             }
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
-    
+        cout<<n-ans<<endl;
+
+    }
     rn;
 }

@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Almost Prime
+// Contest: Codeforces - Codeforces Beta Round #26 (Codeforces format)
+// URL: https://codeforces.com/contest/26/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -33,40 +33,32 @@ using namespace std;
 //
 //===============================================================================
 
+int arr[4100];
+
+void sieve(){
+    
+    for(int i=2;i<=4000;i++){
+        if(arr[i]==0){
+            for(int j=i*2;j<4000;j+=i){
+                arr[j]++;
+            }
+        }
+    }
+}
+
+
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    sieve();
+    int n,ans=0;
+    cin>>n;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    for(int i=1;i<=n;i++){
+        if(arr[i]==2)ans++;
+    }
+    
+    cout<<ans<<endl;
     
     rn;
 }

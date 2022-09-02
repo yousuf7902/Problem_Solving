@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Chip Game
+// Contest: Codeforces - Codeforces Round #814 (Div. 2)
+// URL: https://codeforces.com/contest/1719/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -35,38 +35,19 @@ using namespace std;
 
 int main(){
     FAST
-    
     int t;
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int a,b;
+        cin>>a>>b;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+        if((a+b)%2==0){
+            cout<<"Tonya"<<endl;
         }
         else{
-            cout<<"YES"<<endl;
+            cout<<"Burenka"<<endl;
         }
-    }    
-    
+    }
     rn;
 }

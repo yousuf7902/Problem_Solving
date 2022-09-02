@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A - Banner Display
+// Contest: Virtual Judge - IUBAT ICPC 2021 Team Selection Contest II
+// URL: https://vjudge.net/contest/508900#problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -22,7 +22,7 @@ using namespace std;
 #define         FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
 #define         vc vector
 #define         pair pair<int, int>
-#define         st set<int>
+//#define         st set<int>
 #define         ll long long
 #define         eb emplace_back
 #define         prec(n) fixed<<setprecision(n)
@@ -36,37 +36,33 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+    set<char>st;
+    map<char, int> mapi;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='c' || s[i]=='o' || s[i]=='d' ||s[i]=='e' || s[i]=='r' || s[i]=='a' || s[i]=='m' || s[i]=='s'){
+            mapi[s[i]]++;
+            st.insert(s[i]);
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    }
+    
+    int ans=INT_MAX;
+    for(int i=0;i<s.size();i++){
+            if(mapi[s[i]]!=0){
+                ans=min(ans,mapi[s[i]]);  
+            }   
+    }
+    
+    if(st.size()==8){
+        cout<<ans<<endl;
+    }
+    else{
+        cout<<0<<endl;
+    }
     
     rn;
 }

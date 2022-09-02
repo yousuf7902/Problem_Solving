@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: 2. Egocentric Subarrays
+// Contest: Codeforces - CodeRams Algorithm Contest #1
+// URL: https://codeforces.com/gym/102892/problem/2
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -36,37 +36,27 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n,k;
+    cin>>n>>k;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+    int arr[n];
+    
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    
+    
+    int ans=0;
+    for(int i=0;i<n;i++){
+        int maxi=arr[i], mini=arr[i];
+        for(int j=i+1;j<n;j++){
+            maxi=max(maxi,arr[j]);
+            mini=min(mini,arr[j]);
+            if(maxi-mini==k){
+                ans++;
             }
         }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
-    
+    }
+    cout<<ans<<endl;
     rn;
 }

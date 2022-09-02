@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Everyone Loves to Sleep
+// Contest: Codeforces - Codeforces Round #811 (Div. 3)
+// URL: https://codeforces.com/contest/1714/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -40,33 +40,26 @@ int main(){
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int n,h,m;
+        cin>>n>>h>>m;
         
-        vc <int> vec;
-        
+        int ans=INT_MAX,cal;
         for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
+            int x,y;
+            cin>>x>>y;
             
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+            if(x*60+y >= (h*60+m)){
+                cal=(x*60+y)-(h*60+m);
             }
+            else{
+                cal=(24*60)-((h*60+m)-(x*60+y));
+                
+            }
+            ans=min(ans,cal);
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        cout<<ans/60<<" "<<ans%60<<endl;
+    }
     
     rn;
 }

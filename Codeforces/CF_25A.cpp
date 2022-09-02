@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. IQ test
+// Contest: Codeforces - Codeforces Beta Round #25 (Div. 2 Only)
+// URL: https://codeforces.com/problemset/problem/25/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,37 +36,39 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
     
-    while(t--){
-        int n;
-        cin>>n;
+    int arr[n+1],e=0,o=0;
+    
+    map<int, int> mapi;
+    
+    for(int i=1;i<=n;i++){
+        cin>>arr[i];
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        if(arr[i]%2==0){
+            mapi[arr[i]]++;
+            e++;
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
+        if(arr[i]%2!=0){
+            o++;
+        }
+    }
+    
+    for(int i=1;i<=n;i++){
+        if(e>o){
+          if(mapi[arr[i]]==0){
+              cout<<i<<endl;
+              break;
+          }  
+        }
+        else{
+            if(mapi[arr[i]]==1){
+                cout<<i<<endl;
                 break;
             }
         }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    }
     
     rn;
 }

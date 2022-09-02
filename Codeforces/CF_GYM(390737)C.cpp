@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: C. Equal Digits
+// Contest: Codeforces - BCS Round 1 (Div. 3)
+// URL: https://codeforces.com/gym/390737/problem/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -36,37 +36,22 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    string s1;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+    cin>>s1;
+    
+    string s2(s1.length(),s1[0]);
+    
+    if(s1>s2){
+        int a=(int)s1[0]-48;
+        for(int i=0;i<s1.size();i++){
+            cout<<a+1;
         }
 
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    }
+    else{
+        cout<<s2<<endl;
+    }
     
     rn;
 }

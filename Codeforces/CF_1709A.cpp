@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Three Doors
+// Contest: Codeforces - Educational Codeforces Round 132 (Rated for Div. 2)
+// URL: https://codeforces.com/contest/1709/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -40,33 +40,34 @@ int main(){
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int x;
+        cin>>x;
         
-        vc <int> vec;
+        int arr[3+1],f=0;
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        for(int i=1;i<=3;i++){
+            cin>>arr[i];
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
+        
+        for(int i=1;i<=6;i++){
+            x=arr[x];
+            if(i==3){
                 f=1;
+                break;
+            }
+            if(x==0){
                 break;
             }
         }
         
         if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
             cout<<"YES"<<endl;
         }
-    }    
-    
+        else{
+            cout<<"NO"<<endl;
+        }
+        
+        
+    }
     rn;
 }

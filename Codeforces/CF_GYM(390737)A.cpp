@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. String Removal
+// Contest: Codeforces - BCS Round 1 (Div. 3)
+// URL: https://codeforces.com/gym/390737/problem/A
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -40,33 +40,22 @@ int main(){
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        string s;
+        cin>>s;
         
-        vc <int> vec;
+        int size=s.size(),a=0,b=0;
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        for(int i=0;i<size;i++){
+            if(s[i]=='a')a++;
+            else b++;
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
+        if(a==(size/2) && b==(size/2)){
             cout<<"YES"<<endl;
         }
-    }    
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
     
     rn;
 }

@@ -1,11 +1,11 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Vasya and Socks
+// Contest: Codeforces - Codeforces Round #262 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/460/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
-
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Yousuf Hassan || CSE,IUBAT || yousufhassan04@gmail.com         ## //
@@ -13,10 +13,10 @@
 // ##                        CF Handle : Yousuf7902                           ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 //===============================================================================
 //
 #define         FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
@@ -36,37 +36,16 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n,m;
+    cin>>n>>m;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    int ans=0;
+    for(int i=1;i<=n;i++){
+        if(i%m==0)n++;
+        ans++;
+    }
+    
+    cout<<ans<<endl;
     
     rn;
 }

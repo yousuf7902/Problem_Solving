@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: A. Noldbach problem
+// Contest: Codeforces - Codeforces Beta Round #17
+// URL: https://codeforces.com/problemset/problem/17/A
+// Memory Limit: 64 MB
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -33,40 +33,55 @@ using namespace std;
 //
 //===============================================================================
 
+const int space=2000;
+
+int arr[space];
+
+void sieve(){
+    arr[0]=1;
+    arr[1]=1;
+    
+    for(int i=2;i*i<=space;i++){
+        if(arr[i]==0){
+            for(int j=i*i;j<space;j+=i){
+                arr[j]=1;
+            }
+        }
+    }
+}
+
+
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    sieve();
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+    vc <int> vec;
+    
+    for(int i=0;i<space;i++){
+        if(arr[i]==0){
+           vec.eb(i);
         }
+    }
+    
+    int n,k;
+    cin>>n>>k;
+    
+    int cnt=0;
+    for(int i=0;i<vec.size()-1;i++){
+        int x=vec[i]+vec[i+1]+1;
+        
+        if(x>=2 && x<=n && arr[x]==0){
+            cnt++;
+        }
+    }
+    
+    if(cnt>=k){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
 
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
-    
     rn;
 }

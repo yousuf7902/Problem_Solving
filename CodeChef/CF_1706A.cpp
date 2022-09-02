@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Another String Minimization Problem
+// Contest: Codeforces - Codeforces Round #809 (Div. 2)
+// URL: https://codeforces.com/contest/1706/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -32,41 +32,43 @@ using namespace std;
 #define         rn return 0;
 //
 //===============================================================================
+int cnt[60];
 
 int main(){
     FAST
-    
+        
     int t;
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int n, m;
+        cin>>n>>m;
         
-        vc <int> vec;
+        int arr[n];
+        
         
         for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
+            cin>>arr[i];
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
+        string s(m, 'B');
+        
+        for(int i=0;i<n;i++){
+            
+           int size=m+1-arr[i];
+           int mn=min(size,arr[i]);
+           int mx=max(size, arr[i]);
+           
+           if(s[mn-1]!='A'){
+               s[mn-1]='A';
+           }
+           else{
+               s[mx-1]='A';
+           }
+
         }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
-    
+        cout<<s<<endl;
+    }
+        
     rn;
 }

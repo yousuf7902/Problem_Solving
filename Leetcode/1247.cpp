@@ -1,9 +1,3 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
-
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -36,37 +30,38 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    string s1, s2;
     
-    while(t--){
-        int n;
-        cin>>n;
+    cin>>s1>>s2;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+    int s1_x=0, s1_y=0,s2_x=0,s2_y=0,f=0;    
+    if(s1.size()==s2.size()){
+        for(int i=0;i<s1.size();i++){
+            if(s1[i]=='x')s1_x++;
+            if(s1[i]=='y')s1_y++;
+            if(s2[i]=='x')s2_x++;
+            if(s2[i]=='y')s2_y++;
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
+    }
+    else{
+        f=1;
+    }
+    
+    
+    if(f==1){
+        cout<<-1<<endl;
+    }
+    else{
+        if(s1_x==s2_y && (s1_y==0 && s2_x==0) || (s1_x==0 && s2_y==0)){
+            cout<<s1.size()/2<<endl;
         }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+        else if((s1_y==s2_x) || (s1_x==s2_y)){
+            cout<<s1.size()/2+s1_y;
         }
         else{
-            cout<<"YES"<<endl;
+            cout<<-1<<endl;
         }
-    }    
-    
+    }
+
     rn;
 }

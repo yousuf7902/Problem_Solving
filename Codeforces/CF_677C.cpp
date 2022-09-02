@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: C. Dominant Piranha
+// Contest: Codeforces - Codeforces Round #677 (Div. 3)
+// URL: https://codeforces.com/problemset/problem/1433/C
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -43,30 +43,39 @@ int main(){
         int n;
         cin>>n;
         
-        vc <int> vec;
+        int arr[n+1];
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        map<int,int>mapi;
+        for(int i=1;i<=n;i++){
+            cin>>arr[i];
+            mapi[arr[i]]++;
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+        
+        int ans=0,temp=arr[1];
+        
+        for(int i=2;i<=n;i++){
+            if(temp<arr[i]){
+                temp=arr[i];
+            }          
+        }
+        
+        for(int i=1;i<=n;i++){
+            if(arr[i]==temp){ 
+                if((arr[i-1]<temp && i!=1)||(arr[i+1]<temp && i!=n)){
+                    ans=i;
+                    break;
+                }
             }
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
+        if(mapi[arr[1]]==n){
+            cout<<-1<<endl;
         }
         else{
-            cout<<"YES"<<endl;
+            cout<<ans<<endl;
         }
-    }    
+
+    }
     
     rn;
 }

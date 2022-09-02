@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: Gcd Queries
+// Contest: CodeChef - JAN15
+// URL: https://www.codechef.com/problems/GCDQ
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 3000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -33,40 +33,55 @@ using namespace std;
 //
 //===============================================================================
 
+
+int gcd(int a, int b){
+    if(b==0)return a;
+    
+    return gcd(b, a%b);
+}
+
+
 int main(){
     FAST
-    
     int t;
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int n,q;
+        cin>>n>>q;
         
-        vc <int> vec;
+        int arr[n+1];
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        for(int i=1;i<=n;i++){
+            cin>>arr[i];
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+        
+        int front[n+7]={0};
+        
+        for(int i=1;i<=n;i++){
+            if(i==1)front[i]=arr[i];
+            else{
+                front[i]=gcd(front[i-1],arr[i]);
             }
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
+        int back[n+7]={0};
+        
+        for(int i=n;i>=1;i--){
+            if(i==n)back[i]=arr[i];
+            else{
+                back[i]=gcd(back[i+1],arr[i]);
+            }
         }
-        else{
-            cout<<"YES"<<endl;
+        
+        while(q--){
+            int l,r;
+            cin>>l>>r;
+            
+            cout<<gcd(front[l-1], back[r+1])<<endl;
         }
-    }    
-    
+        
+         
+    }
     rn;
 }

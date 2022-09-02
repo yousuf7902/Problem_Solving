@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. Perfect Permutation
+// Contest: Codeforces - Codeforces Round #810 (Div. 2)
+// URL: https://codeforces.com/contest/1711/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -43,30 +43,18 @@ int main(){
         int n;
         cin>>n;
         
-        vc <int> vec;
+        int arr[n];
+        
+        arr[0]=n;
+        for(int i=1;i<n;i++){
+            arr[i]=i;
+        }
         
         for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+            cout<<arr[i]<<" ";
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        cout<<endl;
+    }
     
     rn;
 }

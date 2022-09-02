@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B. T-primes
+// Contest: Codeforces - Codeforces Round #142 (Div. 2)
+// URL: https://codeforces.com/contest/230/problem/B
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -32,7 +32,20 @@ using namespace std;
 #define         rn return 0;
 //
 //===============================================================================
-
+bool is_prime(ll int n){
+    
+    if(n <= 1) return false;
+    
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            return false;  
+        }
+    }
+    
+    return true;
+}
+ 
+ 
 int main(){
     FAST
     
@@ -40,33 +53,22 @@ int main(){
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        ll int x;
+        cin>>x;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+        ll c=sqrt(x);
+        if(c*c==x){
+            if(is_prime(c)){
+                cout<<"YES"<<endl;
+            }
+            else{
+                cout<<"NO"<<endl;
             }
         }
-        
-        if(f==1){
+        else{
             cout<<"NO"<<endl;
         }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
-    
+        
+    }
     rn;
 }

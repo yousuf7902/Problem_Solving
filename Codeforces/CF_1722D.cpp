@@ -1,11 +1,11 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: D. Line
+// Contest: Codeforces - Codeforces Round #817 (Div. 4)
+// URL: https://codeforces.com/contest/1722/problem/D
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
-
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Yousuf Hassan || CSE,IUBAT || yousufhassan04@gmail.com         ## //
@@ -13,10 +13,10 @@
 // ##                        CF Handle : Yousuf7902                           ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 //===============================================================================
 //
 #define         FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
@@ -43,30 +43,58 @@ int main(){
         int n;
         cin>>n;
         
-        vc <int> vec;
+        string s;
+        cin>>s;
+        
+        vc<ll>vec;
+        
+        ll mini=0,total=0;
         
         for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
+            ll l=i;
+            ll r=n-i-1;
             
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+            if(s[i]=='L'){
+                if(l<r){
+                    mini++;
+                    total+=r;
+                    vec.eb(r-l);
+                }
+                else{
+                    total+=l;
+                }
+            }
+            else{
+                if(r<l){
+                    mini++;
+                    total+=l;
+                    vec.eb(l-r);
+                }
+                else{
+                    total+=r;
+                }
             }
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
+        vc<ll>ans(n+1);
+        
+        for(int i=mini;i<=n;i++){
+            ans[i]=total;
         }
-        else{
-            cout<<"YES"<<endl;
+        
+        sort(vec.begin(),vec.end(),greater<int>());
+        
+        for(int i=mini-1;i>=1;i--){
+            total-=vec.back();
+            vec.pop_back();
+            ans[i]=total;
         }
-    }    
+        
+        for(int i=1;i<=n;i++){
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+    }
     
     rn;
 }

@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Problem: A - A
+// Contest: Virtual Judge - Solo Speed Contest - 49
+// URL: https://vjudge.net/contest/506718#problem/A
+// Memory Limit: 1024 MB
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,37 +36,27 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    string s;
+    cin>>s;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
+    int f=0;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='R'){
+            if((i+1)%2==0){
                 f=1;
                 break;
             }
         }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+        else if(s[i]=='L'){
+            if((i+1)%2!=0){
+                f=1;
+                break;
+            }
         }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+    }
+    
+    if(f==1)cout<<"No"<<endl;
+    else cout<<"Yes"<<endl;
     
     rn;
 }

@@ -1,9 +1,3 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
-// Memory Limit: 256 MB
-// Time Limit: 1000 ms
-
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -33,40 +27,45 @@ using namespace std;
 //
 //===============================================================================
 
+const int space=1e7+5;
+
+vc <int> vec(space,1);
+
+void sieve(){
+    vec[0]=0;
+    vec[1]=0;
+    
+    for(int i=2;i*i<=space;i++){
+        if(vec[i]==1){
+            for(int j=i*i;j<=space;j+=i){
+                vec[j]=0;
+            }
+        }
+    }
+    
+}
+
+
+
 int main(){
     FAST
+    
+    
+    sieve();
+    
+    for(int i=1;i<=space;i++){
+        vec[i]+=vec[i-1];
+    }
     
     int t;
     cin>>t;
     
     while(t--){
-        int n;
-        cin>>n;
+        int l,r;
+        cin>>l>>r;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        cout<<vec[r]-vec[l-1]<<endl;
+    }
     
     rn;
 }

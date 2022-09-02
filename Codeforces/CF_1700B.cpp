@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B. Palindromic Numbers
+// Contest: Codeforces - Codeforces Round #802 (Div. 2)
+// URL: https://codeforces.com/problemset/problem/1700/B
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -42,31 +42,37 @@ int main(){
     while(t--){
         int n;
         cin>>n;
+        string a,ans="";
+        cin>>a;
         
-        vc <int> vec;
+        int carry=0;
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
+        if(a[0]!='9'){
+            for(int i=0;i<a.size();i++){
+                cout<<9-(a[i]-'0');
             }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+            cout<<endl;
         }
         else{
-            cout<<"YES"<<endl;
+            
+            for(int i=a.size()-1;i>=0;i--){
+                int c=(a[i]-'0')+carry;
+                
+                if(c<=1){
+                    ans.push_back('0'+ (1-c));
+                }
+                else{
+                    ans.push_back('0'+ (11-c));
+                }
+                
+                if(c>1)carry=1;
+                else carry=0;
+            }
+            reverse(ans.begin(), ans.end());
+            cout<<ans<<endl;
         }
-    }    
-    
+        
+        
+    }
     rn;
 }

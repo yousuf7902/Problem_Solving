@@ -1,11 +1,11 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B. Multiply by 2, divide by 6
+// Contest: Codeforces - Codeforces Round #653 (Div. 3)
+// URL: https://codeforces.com/problemset/problem/1374/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
-
+ 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 // ##                                                                         ## //
 // ##          Yousuf Hassan || CSE,IUBAT || yousufhassan04@gmail.com         ## //
@@ -13,10 +13,10 @@
 // ##                        CF Handle : Yousuf7902                           ## //
 // ##                                                                         ## //
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 //===============================================================================
 //
 #define         FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
@@ -40,33 +40,20 @@ int main(){
     cin>>t;
     
     while(t--){
-        int n;
+        ll int n,cnt=0;
         cin>>n;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
+        while(n>0){
+            if(n==1)break;
+            if(n%6==0)n/=6;
+            else n*=2;
+            cnt++;
         }
         
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        
+        if(n==1)cout<<cnt<<endl;
+        else cout<<-1<<endl;
+    }
     
     rn;
 }

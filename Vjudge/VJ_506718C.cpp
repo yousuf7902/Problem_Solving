@@ -1,8 +1,8 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: C - C
+// Contest: Virtual Judge - Solo Speed Contest - 49
+// URL: https://vjudge.net/contest/506718#problem/C
 // Memory Limit: 256 MB
-// Time Limit: 1000 ms
+// Time Limit: 2000 ms
 
 //~"~"~"~"~"~"~"~"~"~"~"~"~  ♥ B I S M I L L A H I R  R A H M A N I R  R A H I M ♥   ~"~"~"~"~"~"~"~"~"~"~"~"~//  
 
@@ -36,37 +36,34 @@ using namespace std;
 int main(){
     FAST
     
-    int t;
-    cin>>t;
+    int n,m;
+    cin>>n>>m;
     
-    while(t--){
-        int n;
-        cin>>n;
+    int c[n],keys[m],c_odd=0,c_even=0,k_odd=0,k_even=0;
+    
+    for(int i=0;i<n;i++){
+        cin>>c[i];
         
-        vc <int> vec;
+        if(c[i]%2==0)c_even++;
+        else c_odd++;
+    }
+    
+    for(int i=0;i<m;i++){
+        cin>>keys[i];
         
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
-        }
-        else{
-            cout<<"YES"<<endl;
-        }
-    }    
+        if(keys[i]%2==0)k_even++;
+        else k_odd++;
+    }
+    
+    int ans=0; 
+    
+    if((k_odd==0 && c_odd==0) || (c_even==0&& k_even==0)){
+        cout<<ans<<endl;
+    }
+    else{
+        ans=min(c_even,k_odd)+min(k_even,c_odd);
+        cout<<ans<<endl;
+    }
     
     rn;
 }

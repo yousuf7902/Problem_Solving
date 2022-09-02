@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: A. 2-3 Moves
+// Contest: Codeforces - Educational Codeforces Round 133 (Rated for Div. 2)
+// URL: https://codeforces.com/contest/1716/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -39,34 +39,21 @@ int main(){
     int t;
     cin>>t;
     
+    
     while(t--){
-        int n;
+        ll int n;
         cin>>n;
         
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
+        if(n==1){
+            cout<<2<<endl;
         }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+        else if(n%3==0){
+            cout<<n/3<<endl;
         }
         else{
-            cout<<"YES"<<endl;
+            cout<<(n/3)+1<<endl;
         }
-    }    
+    }
     
     rn;
 }

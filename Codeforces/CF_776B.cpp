@@ -1,6 +1,6 @@
-// Problem: A. Difference Operations
-// Contest: Codeforces - Codeforces Round #808 (Div. 2)
-// URL: https://codeforces.com/contest/1708/problem/0
+// Problem: B. Sherlock and his girlfriend
+// Contest: Codeforces - ICM Technex 2017 and Codeforces Round #400 (Div. 1 + Div. 2, combined)
+// URL: https://codeforces.com/contest/776/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 
@@ -32,41 +32,55 @@ using namespace std;
 #define         rn return 0;
 //
 //===============================================================================
+const int sp=1e6+10;
+
+vc <int> check(sp, 1);
+vc <int> prime;
+
+void seive(){
+   check[0]=2;
+   check[1]=2;
+   
+   for(int i=2;i*i<sp;i++){
+       if(check[i]==1){
+           for(int j=2*i;j<sp;j+=i){
+               check[j]=2;
+           }
+       }
+   } 
+   
+   for(int i=1;i<sp;i++){
+       prime.eb(check[i]);
+   }
+}
 
 int main(){
     FAST
+    seive();
     
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
     
-    while(t--){
-        int n;
-        cin>>n;
-        
-        vc <int> vec;
-        
-        for(int i=0;i<n;i++){
-            int x;
-            cin>>x;
-            
-            vec.eb(x);
-        }
-
-        int f=0;
-        for(int i=vec.size()-1;i>=1;i--){
-            if(vec[i]%vec[0]!=0){
-                f=1;
-                break;
-            }
-        }
-        
-        if(f==1){
-            cout<<"NO"<<endl;
+    int arr[n];
+    vc <int> print;
+    for(int i=0;i<n;i++){
+        if(prime[i+1]==2){
+            print.eb(2);
         }
         else{
-            cout<<"YES"<<endl;
+            print.eb(1);
         }
-    }    
+    }
+    
+    if(n>2){
+        cout<<2<<endl;
+    }
+    else{
+        cout<<1<<endl;
+    }
+    for(auto it: print){
+        cout<<it<<" ";
+    }  
     
     rn;
 }
