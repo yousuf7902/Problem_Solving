@@ -9,6 +9,6 @@
 | HackerEarth | [Yousuf7902](https://www.hackerearth.com/@yousuf37) | 2 |
 | Beecrowd | [Yousuf_Hassan](https://www.beecrowd.com.br/judge/en/profile/553291) | 109 |
 | VJudge | [Yousuf7902](https://vjudge.net/user/yousuf7902) | 32 |
-| Total | | 355 |
+| Total | | 433 |
 
 Last Updated: 6 September, 2022
